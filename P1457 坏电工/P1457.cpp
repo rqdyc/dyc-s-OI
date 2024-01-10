@@ -1,0 +1,2 @@
+#include<bits/stdc++.h>
+using namespace std;struct N{int x,y,z;}e[200000];bool cmp(N a,N b){return a.z>b.z;}int f[2000],q,p,n,m,s,i,c,u,v,w,z;int g(int i){return f[i]==i?i:f[i]=g(f[i]);}void V(int x,int y){if(g(y)!=g(x))f[g(x)]=g(y);}main(){cin>>n>>m;for(i=0;i<m;i++){cin>>e[i].x>>e[i].y>>e[i].z;f[i]=i;}sort(e,e+m,cmp);for(i=0,c=0;i<m&&c<n;i++){u=e[i].x,v=e[i].y;if(g(u)!=g(v))c++,s+=e[i].z,V(u,v);}if(n-c==1)cout<<s;else cout<<-1;}
